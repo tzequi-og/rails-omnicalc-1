@@ -40,7 +40,19 @@ class CalculatorController < ApplicationController
     @numerator = @r*@principal
     @denominator = 1-(1+@r)**(-@length)
     @payment = (@numerator/@denominator)
-    
+
     render template: "calc_templates/payment_results"
+  end
+
+  def random_new
+    render template: "calc_templates/random_new"
+  end
+
+  def random_results
+    @min = params.fetch(:floor).to_f
+    @max = params.fetch(:ceiling).to_f
+    @variable = rand(@min..@max)
+
+    render template: "calc_templates/random_results"
   end
 end
