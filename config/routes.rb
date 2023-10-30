@@ -2,28 +2,13 @@ Rails.application.routes.draw do
   get "/", controller: "calculator", action: "home_page"
   get "/square/new", controller: "calculator", action: "square_new"
   get "/square/results", controller: "calculator", action: "square_results"
+  get "/square_root/new", controller: "calculator", action: "sqrt_new"
+  get "/square_root/results", controller: "calculator", action: "sqrt_results"
+  get "/payment/new", controller: "calculator", action: "payment_new"
+  get "/payment/results", controller: "calculator", action: "payment_results"
 end
 
 =begin
-get("/square/results") do
-  @number = params.fetch(:number)
-  @square = @number.to_f ** 2
-
-  erb(:square_results, { :layout => :layout })
-end
-
-get("/square_root/new") do
-  
-  erb(:square_root, { :layout => :layout })
-end
-
-get("/square_root/results") do
-  @number = params.fetch(:number)
-  @square_root = @number.to_f ** 0.5
-
-  erb(:square_root_results, { :layout => :layout })
-end
-
 get("/payment/new") do
   
   erb(:payment, { :layout => :layout })
