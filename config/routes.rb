@@ -9,25 +9,6 @@ Rails.application.routes.draw do
 end
 
 =begin
-get("/payment/new") do
-  
-  erb(:payment, { :layout => :layout })
-end
-
-get("/payment/results") do
-  @apr = params.fetch(:apr).to_f
-  @time = params.fetch(:time)
-  @length = @time.to_i*12
-  @principal = params.fetch(:principal).to_f
-  @r = @apr/1200
-
-  @numerator = @r*@principal
-  @denominator = 1-(1+@r)**(-@length)
-  @payment = (@numerator/@denominator)
-
-  erb(:payment_results, { :layout => :layout })
-end
-
 get("/random/new") do
   
   erb(:random, { :layout => :layout })
